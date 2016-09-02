@@ -68,7 +68,7 @@ def passwdAnalyzer(passwd):
     numeric=countNumeric(passwd)
     print "NUMERIC", numeric
     for count in special, upper, lower, numeric:
-        if count[0] > 1:
+        if count[0] >= 1:
             passwdCombination = math.pow(count[1],count[0]) * passwdCombination
         print count
 
