@@ -1,6 +1,6 @@
 #!/usr/bin/python
 '''
-Analyze an passwd and tell you how long is needed to crack it with a brute force
+Analyze a passwd and tell you how long is needed to crack it with a brute force
 attack.
 
 zioalex@gmail.com
