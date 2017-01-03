@@ -54,24 +54,7 @@ def findconf():
 def findconfcomp():
     inFile = sys.stdin.read()
     regex = r"Module Name: (.*)\nContent handlers:(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:[\s]+((.*?\n)+?)(Current Configuration:((.*?\n)+?\n|\n)|(\n))"
-    #with open(inFile, 'r') as i:
-    #    lines = i.readlines()
-    #prog = re.compile(r'(Module Name: (.*)\n.*Configuration Phase Participation: (.*)\n((?:\n.+)+))', re.MULTILINE)
-    #prog = re.compile(r'Module Name: (.*)\n(.*)\n(.*)\n(.*)\n((.*\n+?)Current Configuration:)(((.*\n)+?))(.*)\n', re.MULTILINE)
-    #prog = re.compile(r'Module Name: (.*)\n(.*)\n(.*)\n(.*)\n((.*\n)(.*\n+?)Current Configuration:)', re.MULTILINE)
-    #prog = re.compile(r'Module Name: (.*)\n(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:\n(.*)\nCurrent Configuration:', re.MULTILINE)
-    #prog = re.compile(r'Module Name: (.*)\n(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:\n((((\s)+.*)\n)+)\nCurrent Configuration:\n((((\s)+.*)\n)+)', re.MULTILINE)
-    #prog = re.compile(r'Module Name: (.*)\n(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:\n((((\s)+.*)\n)+)(Current Configuration:\n((\s)+(((.*)(\n)+))))', re.MULTILINE)
-    #prog = re.compile(r'Module Name: (.*)\n(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:\n((((\s)+.*)\n)+)Current Configuration:\n((((\s)*.*)\n)*?)\n', re.MULTILINE)
-    #prog = re.compile(r'Module Name: (.*)\n(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:\n((((\s)+.*)\n)*)Current Configuration:\n((((\s)*.*)\n)*?)\n', re.MULTILINE)
-    prog = re.compile(regex , re.MULTILINE)
-    # Module Name: (.*)\n(.*)\n(.*)Configuration Phase Participation:(.*)\nRequest Phase Participation: (.*)\nModule Directives: ((none)*|((\n)+?(.*)\n)*)
-    # Module Directives:(\n(.*?\n)+?)Current Configuration:(\n(.*?\n)+?)\n
-    # Module Directives:(\n(.*?\n)+?)Current Configuration:(\n(.*?\n)+?)\n
-    # Module Name: (.*)\nContent handlers:(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:(\s*\n(.*?\n)+?)((?=Current Configuration:((.*?\n)+?)\n)|\n)
-    # https://regex101.com/r/5VtGL7/1 Delete Link https://regex101.com/delete/6WG9pWI5T55dN2DuVlnCJ8Xn
-    # Module Name: (.*)\nContent handlers:(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:[\s]*((.*?\n)+?)Current Configuration:((.*?\n)+?\n|\n)
-    # Module Name: (.*)\nContent handlers:(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:[\s]+((.*?\n)+?)(Current Configuration:|(\n))((.*?\n)+?\n|)
+     prog = re.compile(regex , re.MULTILINE)
     i = 1
     for result in prog.finditer(inFile):
         print i
