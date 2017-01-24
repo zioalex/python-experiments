@@ -54,7 +54,7 @@ def findconf():
 def findconfcomp():
     inFile = sys.stdin.read()
     regex = r"Module Name: (.*)\nContent handlers:(.*)\nConfiguration Phase Participation: (.*)\nRequest Phase Participation: (.*)\nModule Directives:[\s]+((.*?\n)+?)(Current Configuration:((.*?\n)+?\n|\n)|(\n))"
-     prog = re.compile(regex , re.MULTILINE)
+    prog = re.compile(regex , re.MULTILINE)
     i = 1
     for result in prog.finditer(inFile):
         print i
