@@ -17,7 +17,7 @@ def displayPathtoPrincess(n, grid):
     print('the bot is here:', bot_position)
 
     new_bot_position = bot_position
-    while True:
+    while new_bot_position != princess_position:
         if new_bot_position[0] < princess_position[0]:
             print("DOWN")
             new_bot_position = (new_bot_position[0] + 1, new_bot_position[1])
@@ -30,10 +30,6 @@ def displayPathtoPrincess(n, grid):
         elif new_bot_position[1] > princess_position[1]:
             print("LEFT")
             new_bot_position = (new_bot_position[0], new_bot_position[1] - 1)
-        if new_bot_position == princess_position:
-            print("The princess is here %s and now also the bot is here %s"
-                  % (princess_position, new_bot_position))
-            break
 
 
 def displayPathtoPrincess_singleline(array_lenght, index, __input_line, bot_position, princess_position):
@@ -69,17 +65,32 @@ def displayPathtoPrincess_singleline(array_lenght, index, __input_line, bot_posi
     return new_bot_position, princess_position
 
 m = int(input())
-#grid = [["-" for x in range(m)] for y in range(m)]
-#for x in range(0, m):
+# Solution displayPathtoPrincess
+# Initialize the Matrix; the matrix is nothing more that a list of lists of the same size
+# grid = [["-" for x in range(m)] for y in range(m)]
+# for x in range(0, m):
 #    for y in range(0, m):
 #        grid[x][y] = input().strip()
-bot_pos = None
-prin_pos = None
-for x in range(0, m):
-    input_list = list(input().strip())
-    bot_pos, prin_pos = displayPathtoPrincess_singleline(m, x, input_list, bot_pos, prin_pos)
-    
-#for x in range(0, m):
-#    print(grid[x]),
 
-#displayPathtoPrincess(m, grid)
+# Solution displayPathtoPrincess_singleline
+# Run the function for every input line; expensive
+# bot_pos = None
+# prin_pos = None
+# for x in range(0, m):
+#    input_list = list(input().strip())
+#    bot_pos, prin_pos = displayPathtoPrincess_singleline(m, x, input_list, bot_pos, prin_pos)
+
+# displayPathtoPrincess(m, grid)
+
+# Cleaned solution
+grid = []
+for i in range(m):
+    # fill the matrix 
+    grid.append(list(input().strip()))
+
+for x in range(0, m):
+    # print the matrix
+    print(grid[x]),
+
+displayPathtoPrincess(m, grid)
+
